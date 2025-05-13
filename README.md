@@ -17,7 +17,7 @@ This repository contains the dataset preparation, training and evaluation script
 │   └── ... 
 ├── data_loading_util.py                   # utility to load and clean the initial datasets
 ├── evaluation_pipeline.py                 # main file for running evaluation experiments
-├── evaluation_util.py                     # utility for evaluation, mainly to handle complex . adapted from [a-rebmann](https://github.com/a-rebmann/llms4pm/blob/main/eval_util.py)
+├── evaluation_util.py                     # utility for evaluation, mainly complex logic for process tree parsing. adapted from https://github.com/a-rebmann/llms4pm/blob/main/eval_util.py
 ├── instruction_tuning_pipeline.py         # main file for running instruction tuning experiments
 ├── instruction_tuning_util.py             # utility to mix training samples into one dataset and fill prompt templates with real data, as well as convert into LLM-compatible format
 ├── prompt_builder_util.py                 # utility to build prompts with optional few-shot setting, used during evaluation
