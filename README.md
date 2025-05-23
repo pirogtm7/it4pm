@@ -6,14 +6,16 @@ This repository contains the dataset preparation, training and evaluation script
 ## Structure
 ```
 .
-├── dataset_analysis                        
+├── dataset_analysis
+│   ├── instruction_dataset_builder.ipynb  # Python notebook for building per-task instruction datasets                     
 │   └── dataset_analysis.ipynb             # Python notebook for the analysis of datasets features mentioned in Section 5.1 of the thesis.
 ├── datasets                               # initial datasets must be added here (see below, Setup)
 │   └── train_val_test.pkl                 # used for reproducible creation of dataset splits
 ├── eval                                   # Python notebooks for the in-depth analysis of results as described in Sections 5.3.2-5.3.3 of the thesis.
 │   ├── classified_domains.csv             # classification of domains with confidence scores used for Doman-Specific Analysis
 │   └── ... 
-├── prompts_per_cluster                    # prompt variations (paraphrasing) per cluster, used during training
+├── prompts                                # prompt variations (paraphrasing): 1)for all tasks (used in instruction_dataset_builder);
+                                           # 2)per task cluster (used during training)
 │   └── ... 
 ├── data_loading_util.py                   # utility to load and clean the initial datasets
 ├── evaluation_pipeline.py                 # main file for running evaluation experiments
