@@ -203,7 +203,10 @@ def get_formatted_answer(example, template_text):
         raise ValueError(f"Missing placeholder variable in format: {e}")
     
 
-def generate_inverted_answers(example, task_name):
+def generate_inverted_answers(example, task_name, rng=None):
+    if rng is None:
+        rng = random.Random()
+
     unique_activities = list(example["unique_activities"])
 
     if task_name == "next_activity":
@@ -212,7 +215,7 @@ def generate_inverted_answers(example, task_name):
 
         # ---------------- Reduced Prefix ----------------
         # Remove one activity from core_prefix (never remove next_activity)
-        idx = random.randrange(len(core_prefix))
+        idx = rng.randrange(len(core_prefix))
         removed_act = core_prefix[idx]
         reduced_core = core_prefix[:idx] + core_prefix[idx+1:]
 
@@ -222,8 +225,8 @@ def generate_inverted_answers(example, task_name):
 
         # ---------------- Extended Prefix ----------------
         # Add one activity into core_prefix at random position
-        added_act = random.choice(unique_activities)
-        insert_idx = random.randint(0, len(core_prefix))
+        added_act = rng.choice(unique_activities)
+        insert_idx = rng.randint(0, len(core_prefix))
         extended_core = core_prefix[:insert_idx] + [added_act] + core_prefix[insert_idx:]
         extended_prefix = extended_core + [next_activity]
 
@@ -232,12 +235,12 @@ def generate_inverted_answers(example, task_name):
 
         # ---------------- Wrong Next Activity ----------------
         possible_wrong = [act for act in unique_activities if act != next_activity]
-        example["wrong_next_act"] = random.choice(possible_wrong)
+        example["wrong_next_act"] = rng.choice(possible_wrong)
 
     elif task_name == "dfg":
         # reduced_dfg: randomly remove one tuple from the list "dfg"
         dfg = ast.literal_eval(example["gold_answer"])
-        idx = random.randrange(len(dfg))
+        idx = rng.randrange(len(dfg))
         removed_pair = dfg[idx]
         reduced_dfg = dfg[:idx] + dfg[idx+1:]
         example["reduced_dfg"] = reduced_dfg
@@ -246,14 +249,14 @@ def generate_inverted_answers(example, task_name):
         # extended_dfg: randomly add one tuple with two activities from unique_activities to dfg,
         # but the same pair must not exist already.
         possible_pairs = []
-        random_idx = random.randint(0, len(dfg))
+        random_idx = rng.randint(0, len(dfg))
         for a in unique_activities:
             for b in unique_activities:
                 pair = (a, b)
                 if pair not in dfg:
                     possible_pairs.append(pair)
         if possible_pairs:
-            added_pair = random.choice(possible_pairs)
+            added_pair = rng.choice(possible_pairs)
             extended_dfg = dfg[:random_idx] + [added_pair] + dfg[random_idx:]
             example["extended_dfg"] = extended_dfg
             example["pair_from_extended_dfg"] = added_pair
@@ -279,7 +282,7 @@ def build_instruction_encoding(example, tokenizer, excluded_task, max_length=102
     
     Returns a dict with "input_ids", "attention_mask", "labels".
     """
-    prompt_module_name = f"prompts_per_cluster.prompts_{excluded_task}_excluded"
+    prompt_module_name = f"prompts.prompts_{excluded_task}_excluded"
     prompts = importlib.import_module(prompt_module_name)
 
     task_name = example["task_name"]
