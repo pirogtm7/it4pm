@@ -1,7 +1,7 @@
-# Enhancing Process Mining with LLMs by Applying Instruction Tuning
+# LLMs that Understand Processes: Instruction-tuning for Semantics-Aware Process Mining
 
 ## Description
-This repository contains the dataset preparation, training and evaluation scripts as described in Master's Thesis "Enhancing Process Mining with LLMs by Applying Instruction Tuning".
+This repository contains the dataset preparation, training and evaluation scripts as described in "LLMs that Understand Processes: Instruction-tuning for Semantics-Aware Process Mining" submitted to IEEE ICPM 2025.
 
 ## Structure
 ```
@@ -11,6 +11,7 @@ This repository contains the dataset preparation, training and evaluation script
 │   └── dataset_analysis.ipynb             # Python notebook for the analysis of datasets features mentioned in Section 5.1 of the thesis.
 ├── datasets                               # initial datasets must be added here (see below, Setup)
 │   └── train_val_test.pkl                 # used for reproducible creation of dataset splits
+├── domain_performance_anaylsis.pdf        # supplementary material with detailed evanuation results focusing on domain-dependent performance of instruction-tuned LLMs
 ├── eval                                   # Python notebooks for the in-depth analysis of results as described in Sections 5.3.2-5.3.3 of the thesis.
 │   ├── classified_domains.csv             # classification of domains with confidence scores used for Doman-Specific Analysis
 │   └── ... 
