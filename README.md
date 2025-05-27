@@ -11,7 +11,6 @@ This repository contains the dataset preparation, training and evaluation script
 │   └── dataset_analysis.ipynb             # Python notebook for the analysis of datasets features mentioned in Section 5.1 of the thesis.
 ├── datasets                               # initial datasets must be added here (see below, Setup)
 │   └── train_val_test.pkl                 # used for reproducible creation of dataset splits
-├── domain_performance_anaylsis.pdf        # supplementary material with detailed evanuation results focusing on domain-dependent performance of instruction-tuned LLMs
 ├── eval                                   # Python notebooks for the in-depth analysis of results as described in Sections 5.3.2-5.3.3 of the thesis.
 │   ├── classified_domains.csv             # classification of domains with confidence scores used for Doman-Specific Analysis
 │   └── ... 
@@ -19,6 +18,7 @@ This repository contains the dataset preparation, training and evaluation script
                                            # 2)per task cluster (used during training)
 │   └── ... 
 ├── data_loading_util.py                   # utility to load and clean the initial datasets
+├── domain_performance_anaylsis.pdf        # supplementary material with detailed evanuation results focusing on domain-dependent performance of instruction-tuned LLMs
 ├── evaluation_pipeline.py                 # main file for running evaluation experiments
 ├── evaluation_util.py                     # utility for evaluation, mainly complex logic for process tree parsing. adapted from https://github.com/a-rebmann/llms4pm/blob/main/eval_util.py
 ├── instruction_tuning_pipeline.py         # main file for running instruction tuning experiments
