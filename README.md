@@ -18,7 +18,7 @@ This repository contains the dataset preparation, training and evaluation script
                                            # 2)per task cluster (used during training)
 │   └── ... 
 ├── data_loading_util.py                   # utility to load and clean the initial datasets
-├── domain_performance_anaylsis.pdf        # supplementary material with detailed evanuation results focusing on domain-dependent performance of instruction-tuned LLMs
+├── domain_performance_anaylsis.pdf        # supplementary material with detailed evaluation results focusing on domain-dependent performance of instruction-tuned LLMs
 ├── evaluation_pipeline.py                 # main file for running evaluation experiments
 ├── evaluation_util.py                     # utility for evaluation, mainly complex logic for process tree parsing. adapted from https://github.com/a-rebmann/llms4pm/blob/main/eval_util.py
 ├── instruction_tuning_pipeline.py         # main file for running instruction tuning experiments
@@ -26,6 +26,10 @@ This repository contains the dataset preparation, training and evaluation script
 ├── prompt_builder_util.py                 # utility to build prompts with optional few-shot setting, used during evaluation
 └── ...
 ```
+
+## Supplementary Material
+
+Detailed evaluation results focusing on domain-dependent performance of instruction-tuned LLMs are avialable [here](https://github.com/pirogtm7/it4pm/blob/master/domain_performance_anaylsis.pdf)
 
 ## Instruction-tuned LLMs
 The instruction-tuned models are available on HuggingFace (the postfix "anomaly",... refers to the task group excluded during training):
