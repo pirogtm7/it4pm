@@ -183,4 +183,4 @@ trainer = SFTTrainer(
 trainer.add_callback(CustomCheckpointCallback())
 
 trainer.train()
-# trainer.train(resume_from_checkpoint='outputs/<checkpoint_name>') # in case training must be resumed from a different checkpoint
+# trainer.train(resume_from_checkpoint='') # in case training must be resumed from a different checkpoint

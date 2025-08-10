@@ -34,11 +34,13 @@ model_name = LLAMA_MODEL
 # model_name = "pyrihtm/lora_Llama-3.3-70B-Instruct_it4pm_anomaly"
 # model_name = "pyrihtm/lora_Llama-3.3-70B-Instruct_it4pm_prediction"
 # model_name = "pyrihtm/lora_Llama-3.3-70B-Instruct_it4pm_discovery"
+# model_name = "pyrihtm/lora_Mistral-Large-Instruct-2407_it4pm_anomaly"
+# model_name = "pyrihtm/lora_Mistral-Large-Instruct-2407_it4pm_prediction"
 # model_name = "pyrihtm/lora_Mistral-Large-Instruct-2407_it4pm_discovery"
 
 model_name_label = model_name.replace("/", "_") # replace "/" for file saving
 
-num_samples = 5000  # Limit dataset size or "all"; make sure to use an even number for anomaly tasks, otherwise will be turned to an even number dynamically
+num_samples = "all" # Limit dataset size or "all"; make sure to use an even number for anomaly tasks, otherwise will be turned to an even number dynamically
 num_shots = 0 # make sure to use an even number for anomaly tasks (pairs of negative and positive samples)
 
 max_seq_length = 1024
@@ -46,7 +48,7 @@ dtype = torch.bfloat16
 load_in_4bit = True
 
 #------------------ Development Configuration (can be ignored) ------------------
-steps_range = [1000, 7000] if mode == "validation" and model_type == "checkpoint" else [0]
+steps_range = [1000, 2000, 3000, 4000] if mode == "validation" and model_type == "checkpoint" else [0]
 
 task_types = ["activity_anomaly", "trace_anomaly", "next_activity", "dfg_generation", "pt_generation"]
 if task_name not in task_types:
