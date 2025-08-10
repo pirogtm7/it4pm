@@ -37,6 +37,8 @@ The instruction-tuned models are available on HuggingFace (the postfix "anomaly"
 * https://huggingface.co/pyrihtm/lora_Llama-3.3-70B-Instruct_it4pm_anomaly
 * https://huggingface.co/pyrihtm/lora_Llama-3.3-70B-Instruct_it4pm_prediction
 * https://huggingface.co/pyrihtm/lora_Llama-3.3-70B-Instruct_it4pm_discovery
+* https://huggingface.co/pyrihtm/lora_Mistral-Large-Instruct-2407_it4pm_anomaly
+* https://huggingface.co/pyrihtm/lora_Mistral-Large-Instruct-2407_it4pm_prediction
 * https://huggingface.co/pyrihtm/lora_Mistral-Large-Instruct-2407_it4pm_discovery
 
 ## Running the Experiments
